@@ -1,6 +1,37 @@
-{
-  "name": "John Doe",
-  "email": "john.doe@devpulse.com",
-  "password": "securePassword123",
-  "role": "contributor"
-}
+[
+  {
+    "id": 1779391760945,
+    "name": "Khan",
+    "email": "Khan.doe@devpulse.com",
+    "password": "securePassword1235",
+    "role": "contributor"
+  },
+  {
+    "id": 1779393157142,
+    "name": "James",
+    "email": "James.doe@devpulse.com",
+    "password": "securePassword1235",
+    "role": "contributor"
+  },
+  {
+    "id": 1779393225785,
+    "name": "Kevin",
+    "email": "Kevin.doe@devpulse.com",
+    "password": "securePassword1237",
+    "role": "contributor"
+  },
+  {
+    "id": 1779393269670,
+    "name": "Jacob Smith",
+    "email": "jacob.smith@devpulse.com",
+    "password": "anotherSecurePassword456",
+    "role": "maintainer"
+  },
+  {
+    "id": 1779393292567,
+    "name": "John Doe",
+    "email": "john.doe@devpulse.com",
+    "password": "securePassword123",
+    "role": "contributor"
+  }
+]

@@ -11,3 +11,9 @@ export const readUsers = () => {
 const users = fs.readFileSync(filePath, "utf-8");
 return JSON.parse(users);
 }
+
+
+
+export const writeUsers = (users:any) => {
+    fs.writeFileSync(filePath, JSON.stringify(users, null, 2), "utf-8");
+}
