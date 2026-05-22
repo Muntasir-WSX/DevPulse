@@ -1,7 +1,7 @@
 {
   "name": "devpulse",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple Express.js server",
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch ./src/server.ts",
@@ -11,11 +11,22 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^5.0.6",
     "@types/node": "^25.9.1",
     "typescript": "^6.0.3"
   },
   "dependencies": {
     "dotenv": "^17.4.2",
+    "express": "^5.2.1",
     "tsx": "^4.22.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Muntasir-WSX/DevPulse.git"
+  },
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Muntasir-WSX/DevPulse/issues"
+  },
+  "homepage": "https://github.com/Muntasir-WSX/DevPulse#readme"
 }

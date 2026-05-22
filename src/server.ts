@@ -1,21 +1,21 @@
-import { createServer, IncomingMessage, Server, ServerResponse } from "http";
-import { routeHandler } from "./routes/route";
-import config from "./config";
+import express, { type Application, type Request, type Response } from 'express'
+const app : Application = express()
+const port = 5000
 
-const server : Server = createServer((req : IncomingMessage, res: ServerResponse) => {
- 
-    const url = req.url
-    const method = req.method
-
- routeHandler(req, res);
+app.use(express.json()) // Middleware to parse JSON bodies
 
 
-    
-});
+app.get('/api/users', (req : Request, res : Response) => {
+//   res.send('Welcome to DevPulse!')
+res.status(200).json({ message: "Welcome to DevPulse!" })
+})
 
+app.post  ('/api/users', async (req : Request, res : Response) => {
+    // res.status(201).json({ message: "User created successfully!" })
 
-server.listen(config.port, ()=> 
-    
-    console.log(`Server is running on port ${config.port}`)
+    console.log(req.body);
+})
 
-);
+app.listen(port, () => {
+  console.log(` DevPulse app listening on port ${port}`)
+})
