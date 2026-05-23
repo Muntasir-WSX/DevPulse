@@ -1,11 +1,18 @@
-import dotenv from 'dotenv';
-import path from 'path';
+import dotenv from "dotenv";
+import path from "path";
+dotenv.config({
+  path: path.join(process.cwd(), ".env"),
+});
 
-dotenv.config({ path: path.resolve(process.cwd(), '.env') });
+const fallbackNeon =
+  "postgresql://neondb_owner:npg_B2lE8zAGIaeg@ep-twilight-star-aq8pmibs-pooler.c-8.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require";
 
 const config = {
-    port: Number(process.env.PORT),
-
+  connection_string:
+    (process.env.DATABASE_URL || process.env.CONNECTIONSTRING || fallbackNeon) as string,
+  port: Number(process.env.PORT || 5000),
+  jwtSecret: process.env.JWT_SECRET || "devpulse-development-secret",
+  bcryptSaltRounds: Number(process.env.BCRYPT_SALT_ROUNDS || 10),
 };
 
 export default config;

@@ -1,21 +1,12 @@
-import express, { type Application, type Request, type Response } from 'express'
-const app : Application = express()
-const port = 5000
+import app from "./app";
+import config from "./config";
+import { initDB } from "./db";
 
-app.use(express.json()) // Middleware to parse JSON bodies
+const main = async () => {
+  await initDB();
+  app.listen(config.port, () => {
+  console.log(` DevPulse app listening on port ${config.port}`);
+});
+}
 
-
-app.get('/api/users', (req : Request, res : Response) => {
-//   res.send('Welcome to DevPulse!')
-res.status(200).json({ message: "Welcome to DevPulse!" })
-})
-
-app.post  ('/api/users', async (req : Request, res : Response) => {
-    // res.status(201).json({ message: "User created successfully!" })
-
-    console.log(req.body);
-})
-
-app.listen(port, () => {
-  console.log(` DevPulse app listening on port ${port}`)
-})
+void main();
