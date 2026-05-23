@@ -3,7 +3,6 @@ import express, { type Application, type Request, type Response } from "express"
 import { authRoute } from "./modules/auth/auth.route";
 import { issuesRoute } from "./modules/issues/issues.route";
 import { metricsRoute } from "./modules/metrics/metrics.route";
-import { profileRoute } from "./modules/profile/profile.route";
 import { errorHandler, notFound } from "./middleware/error.middleware";
 
 const app: Application = express();
@@ -23,7 +22,6 @@ app.get("/", (_req: Request, res: Response) => {
 app.use("/api/auth", authRoute);
 app.use("/api/issues", issuesRoute);
 app.use("/api/metrics", metricsRoute);
-app.use("/api/profile", profileRoute);
 
 app.use(notFound);
 app.use(errorHandler);

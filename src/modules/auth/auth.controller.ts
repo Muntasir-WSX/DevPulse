@@ -56,7 +56,7 @@ const signup = async (req: Request, res: Response): Promise<void> => {
     res.status(statusCode).json({
       success: false,
       message,
-      error,
+      errors: error,
     });
   }
 };
@@ -87,7 +87,7 @@ const login = async (req: Request, res: Response): Promise<void> => {
     res.status(statusCode).json({
       success: false,
       message,
-      error,
+      errors: error,
     });
   }
 };

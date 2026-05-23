@@ -39,19 +39,6 @@ export const initDB = async () => {
       )
     `);
 
-    await pool.query(`
-      CREATE TABLE IF NOT EXISTS profiles (
-        id SERIAL PRIMARY KEY,
-        user_id INT UNIQUE REFERENCES users(id) ON DELETE CASCADE,
-        bio TEXT,
-        address TEXT,
-        phone VARCHAR(50),
-        gender VARCHAR(20),
-        created_at TIMESTAMP DEFAULT NOW(),
-        updated_at TIMESTAMP DEFAULT NOW()
-      )
-    `);
-
     await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS role VARCHAR(20) NOT NULL DEFAULT 'contributor';`).catch(() => {});
     await pool.query(`ALTER TABLE users ALTER COLUMN name TYPE VARCHAR(100);`).catch(() => {});
     await pool.query(`ALTER TABLE users ALTER COLUMN email TYPE VARCHAR(255);`).catch(() => {});
@@ -79,8 +66,6 @@ export const initDB = async () => {
     await pool.query(`CREATE TRIGGER users_updated_at_trigger BEFORE UPDATE ON users FOR EACH ROW EXECUTE FUNCTION set_updated_at();`);
     await pool.query(`DROP TRIGGER IF EXISTS issues_updated_at_trigger ON issues;`);
     await pool.query(`CREATE TRIGGER issues_updated_at_trigger BEFORE UPDATE ON issues FOR EACH ROW EXECUTE FUNCTION set_updated_at();`);
-    await pool.query(`DROP TRIGGER IF EXISTS profiles_updated_at_trigger ON profiles;`);
-    await pool.query(`CREATE TRIGGER profiles_updated_at_trigger BEFORE UPDATE ON profiles FOR EACH ROW EXECUTE FUNCTION set_updated_at();`);
 
     console.log("Database connected successfully!");
   } catch (error) {

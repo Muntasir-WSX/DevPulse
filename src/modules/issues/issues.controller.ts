@@ -74,7 +74,7 @@ const createIssueHandler = async (req: Request, res: Response): Promise<void> =>
     res.status(500).json({
       success: false,
       message: error instanceof Error ? error.message : "Internal Server Error",
-      error,
+      errors: error,
     });
   }
 };
@@ -127,7 +127,7 @@ const getIssuesHandler = async (req: Request, res: Response): Promise<void> => {
     res.status(500).json({
       success: false,
       message: error instanceof Error ? error.message : "Internal Server Error",
-      error,
+      errors: error,
     });
   }
 };
@@ -157,7 +157,7 @@ const getIssueHandler = async (req: Request, res: Response): Promise<void> => {
     res.status(500).json({
       success: false,
       message: error instanceof Error ? error.message : "Internal Server Error",
-      error,
+      errors: error,
     });
   }
 };
@@ -238,7 +238,7 @@ const updateIssueHandler = async (req: Request, res: Response): Promise<void> =>
     res.status(500).json({
       success: false,
       message: error instanceof Error ? error.message : "Internal Server Error",
-      error,
+      errors: error,
     });
   }
 };
@@ -268,7 +268,7 @@ const deleteIssueHandler = async (req: Request, res: Response): Promise<void> =>
     res.status(500).json({
       success: false,
       message: error instanceof Error ? error.message : "Internal Server Error",
-      error,
+      errors: error,
     });
   }
 };
